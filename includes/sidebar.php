@@ -6,20 +6,20 @@
         </h5>
         
         <nav class="nav flex-column">
-            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" 
-               href="index.php">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>"
+               href="<?php echo url('index.php'); ?>">
                 <i class="bi bi-house-door me-2"></i>
                 Dashboard
             </a>
             
-            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'estudiantes.php' ? 'active' : ''; ?>" 
-               href="pages/estudiantes.php">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'estudiantes.php' ? 'active' : ''; ?>"
+               href="<?php echo url('pages/estudiantes.php'); ?>">
                 <i class="bi bi-people me-2"></i>
                 Estudiantes
             </a>
             
-            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'cursos.php' ? 'active' : ''; ?>" 
-               href="pages/cursos.php">
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'cursos.php' ? 'active' : ''; ?>"
+               href="<?php echo url('pages/cursos.php'); ?>">
                 <i class="bi bi-book me-2"></i>
                 Cursos
             </a>

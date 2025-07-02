@@ -1,6 +1,7 @@
-<?php 
-include 'includes/header.php';
-include 'includes/functions.php';
+<?php
+require_once __DIR__ . '/config/paths.php';
+require_once INCLUDES_PATH . '/header.php';
+require_once INCLUDES_PATH . '/functions.php';
 
 // Obtener estadísticas
 $stats = obtenerEstadisticas();
@@ -107,13 +108,13 @@ $stats = obtenerEstadisticas();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <a href="pages/estudiantes.php" class="btn btn-primary btn-lg w-100">
+                                        <a href="<?php echo url('pages/estudiantes.php'); ?>" class="btn btn-primary btn-lg w-100">
                                             <i class="bi bi-people me-2"></i>
                                             Ver Todos los Estudiantes
                                         </a>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <a href="pages/cursos.php" class="btn btn-success btn-lg w-100">
+                                        <a href="<?php echo url('pages/cursos.php'); ?>" class="btn btn-success btn-lg w-100">
                                             <i class="bi bi-book me-2"></i>
                                             Ver Todos los Cursos
                                         </a>
