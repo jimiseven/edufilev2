@@ -1,4 +1,4 @@
-    
+
 <?php
 require_once __DIR__ . '/../config/database.php';   // ← ruta correcta
 
@@ -87,4 +87,31 @@ function obtenerEstadisticas() {
     
     return $stats;
 }
+
+// Función para obtener cursos con estadísticas de estudiantes
+function obtenerCursosConEstadisticas() {
+    $database = new Database();
+    $db = $database->getConnection();
+    
+    $query = "SELECT 
+                c.id_curso,
+                c.nombre_curso,
+                n.nombre_nivel,
+                COUNT(DISTINCT p.id_paralelo) as total_paralelos,
+                COUNT(e.id_estudiante) as total_estudiantes,
+                SUM(CASE WHEN e.sexo = 'femenino' THEN 1 ELSE 0 END) as total_mujeres,
+                SUM(CASE WHEN e.sexo = 'masculino' THEN 1 ELSE 0 END) as total_hombres
+              FROM cursos c
+              JOIN niveles n ON c.id_nivel = n.id_nivel
+              LEFT JOIN paralelos p ON c.id_curso = p.id_curso
+              LEFT JOIN estudiantes e ON p.id_paralelo = e.id_paralelo
+              GROUP BY c.id_curso, c.nombre_curso, n.nombre_nivel, n.id_nivel
+              ORDER BY n.id_nivel, c.nombre_curso";
+    
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 ?>

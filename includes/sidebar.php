@@ -4,38 +4,53 @@
             <i class="bi bi-mortarboard-fill me-2"></i>
             Sistema Escolar
         </h5>
-        
+
         <nav class="nav flex-column">
+            <?php
+            // Detectar si estamos en la carpeta pages o en la raíz
+            $currentDir = basename(dirname($_SERVER['SCRIPT_NAME']));
+            $basePath = ($currentDir === 'pages') ? '../' : '';
+            ?>
+
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>"
-               href="<?php echo url('index.php'); ?>">
+                href="<?php echo $basePath; ?>index.php">
                 <i class="bi bi-house-door me-2"></i>
                 Dashboard
             </a>
-            
+
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'estudiantes.php' ? 'active' : ''; ?>"
-               href="<?php echo url('pages/estudiantes.php'); ?>">
+                href="<?php echo $basePath; ?>pages/estudiantes.php">
                 <i class="bi bi-people me-2"></i>
                 Estudiantes
             </a>
-            
+
             <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'cursos.php' ? 'active' : ''; ?>"
-               href="<?php echo url('pages/cursos.php'); ?>">
+                href="<?php echo $basePath; ?>pages/cursos.php">
                 <i class="bi bi-book me-2"></i>
                 Cursos
             </a>
+
+            <!-- Nueva opción de Reportes -->
+            <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'reportes.php' ? 'active' : ''; ?>"
+                href="<?php echo $basePath; ?>pages/reportes.php">
+                <i class="bi bi-file-earmark-bar-graph me-2"></i>
+                Reportes
+            </a>
         </nav>
-        
+
         <div class="mt-auto">
             <hr class="text-white-50">
             <div class="dropdown">
-                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" 
-                   data-bs-toggle="dropdown">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown">
                     <i class="bi bi-person-circle me-2"></i>
                     <span>Admin</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                     <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Configuración</a></li>
-                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
                     <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión</a></li>
                 </ul>
             </div>
