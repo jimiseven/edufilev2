@@ -1,0 +1,39 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Encabezado */
+.login-header {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+/* Tarjeta de login */
+.login-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+}
+
+.login-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.btn-primary {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
